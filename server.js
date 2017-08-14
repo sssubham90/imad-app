@@ -52,6 +52,7 @@ function createHTML(data){
            </div>
        </body>
     </html>`
+    return htmlTemplate
 }
 
 app.get('/:articleName',function(req,res){

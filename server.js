@@ -5,27 +5,25 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Articles{
-    
+var Articles = {
 'article-one': {
     title:'Article One|Subham Mohapatra',
     heading:'Article One',
     date:'Aug 14,2016',
     content:'<p>Article One Content</p>'
-}
+},
 'article-two': {
     title:'Article Two|Subham Mohapatra',
     heading:'Article Two',
     date:'Aug 14,2016',
     content:'<p>Article Two Content</p>'
-}
+},
 'article-three': {
     title:'Article Three|Subham Mohapatra',
     heading:'Article Three',
     date:'Aug 14,2016',
     content:'<p>Article Three Content</p>'
 }
-
 }
 
 function createHTML(data){

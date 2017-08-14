@@ -5,16 +5,51 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/article-one',function(req,res){
-   res.sendFile(path.join(_dirname,'ul','article-one.html')); 
-});
+var Articles{
+    
+var articleOne = {
+    title:'Article One|Subham Mohapatra',
+    date:'Aug 14,2016',
+    content:'<p>Article One Content</p>'
+}
+var articleTwo = {
+    title:'Article Two|Subham Mohapatra',
+    date:'Aug 14,2016',
+    content:'<p>Article Two Content</p>'
+}
+var articleThree = {
+    title:'Article Three|Subham Mohapatra',
+    date:'Aug 14,2016',
+    content:'<p>Article Three Content</p>'
+}
 
-app.get('/article-two',function(req,res){
-   res.send("Article two requested and will be served here."); 
-});
+}
 
-app.get('/article-three',function(req,res){
-   res.send("Article three requested and will be served here."); 
+function createHTML(data){
+    var title=data.title
+    var date=data.date
+    var content=data.content
+    var htmlTemplate=
+    `<html>
+       <head>
+           <title>${title}</title>
+       </head>
+       <body>
+           <div class=container>
+               <div>
+                   <a href='/'>Home</a>
+               </div>
+               <hr>
+               <h3>${date}</h3>
+               ${content}
+           </div>
+       </body>
+    </html>`
+}
+
+app.get('/:articleName',function(req,res){
+   var articleName=req.params.articleName; 
+   res.send(createHTML(Articles[articleName])); 
 });
 
 app.get('/', function (req, res) {

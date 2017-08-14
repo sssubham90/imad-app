@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Articles = {
+var articles = {
 'article-one': {
     title:'Article One|Subham Mohapatra',
     heading:'Article One',
@@ -56,7 +56,7 @@ function createHTML(data){
 
 app.get('/:articleName',function(req,res){
    var articleName=req.params.articleName; 
-   res.send(createHTML(Articles[articleName])); 
+   res.send(createHTML(articles[articleName])); 
 });
 
 app.get('/', function (req, res) {
